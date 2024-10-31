@@ -46,6 +46,19 @@
   // Terminal
   "terminal.integrated.enableMultiLinePasteWarning": "never",
   "terminal.integrated.persistentSessionReviveProcess": "never",
+  // Git
+  "git.enableSmartCommit": false, // Don't commit directly if no staged changes
+  "git.confirmSync": true, // Ask for confirmation when syncing
+  "git.autofetch": true, // Automatically fetch from remote
+  "git.pruneOnFetch": true, // Prune remote branches on fetch
+  "git.fetchOnPull": true, // Fetch before pulling
+  "git.branchSortOrder": "alphabetically", // Sort branches alphabetically
+  "git.showActionButton": {
+    "commit": true,
+    "publish": true,
+    "sync": true
+  }, // Show inline action buttons
+  "git.showProgress": true, // Show Git progress
   // Vim settings
   "vim.easymotion": true,
   "vim.incsearch": false,

@@ -1,0 +1,173 @@
+{
+    "Type Interface": {
+        "prefix": "tint",
+        "body": [
+            "interface ${1:InterfaceName} {",
+            "\t${2:property}: ${3:type}",
+            "\t${0}",
+            "}"
+        ],
+        "description": "TypeScript interface declaration"
+    },
+    "Type Definition": {
+        "prefix": "ttype",
+        "body": [
+            "type ${1:TypeName} = {",
+            "\t${2:property}: ${3:type}",
+            "\t${0}",
+            "}"
+        ],
+        "description": "TypeScript type definition"
+    },
+    "Generic Type": {
+        "prefix": "tgen",
+        "body": [
+            "type ${1:TypeName}<T> = {",
+            "\tdata: T",
+            "\t${2:property}: ${3:type}",
+            "\t${0}",
+            "}"
+        ],
+        "description": "Generic type definition"
+    },
+    "Enum Definition": {
+        "prefix": "tenum",
+        "body": [
+            "enum ${1:EnumName} {",
+            "\t${2:Key} = '${3:value}',",
+            "\t${0}",
+            "}"
+        ],
+        "description": "TypeScript enum definition"
+    },
+    "Async Function": {
+        "prefix": "tfn",
+        "body": [
+            "async function ${1:functionName}(${2:params}): Promise<${3:ReturnType}> {",
+            "\ttry {",
+            "\t\t${0}",
+            "\t} catch (error) {",
+            "\t\tthrow new Error(error instanceof Error ? error.message : 'An error occurred')",
+            "\t}",
+            "}"
+        ],
+        "description": "Async function with error handling"
+    },
+    "Type Guard": {
+        "prefix": "tguard",
+        "body": [
+            "function is${1:Type}(value: unknown): value is ${1:Type} {",
+            "\treturn (",
+            "\t\tvalue != null &&",
+            "\t\ttypeof value === 'object' &&",
+            "\t\t'${2:property}' in value",
+            "\t)",
+            "}"
+        ],
+        "description": "Type guard function"
+    },
+    "Utility Type Partial": {
+        "prefix": "tpar",
+        "body": "type Partial${1:Type} = Partial<${1:Type}>"
+    },
+    "Utility Type Pick": {
+        "prefix": "tpick",
+        "body": "type ${1:NewType} = Pick<${2:OriginalType}, '${3:key}'>"
+    },
+    "Utility Type Omit": {
+        "prefix": "tomit",
+        "body": "type ${1:NewType} = Omit<${2:OriginalType}, '${3:key}'>"
+    },
+    "Class Definition": {
+        "prefix": "tcls",
+        "body": [
+            "class ${1:ClassName} {",
+            "\tprivate ${2:property}: ${3:type}",
+            "",
+            "\tconstructor(${2:property}: ${3:type}) {",
+            "\t\tthis.${2:property} = ${2:property}",
+            "\t}",
+            "",
+            "\tpublic get${2/(.*)/${1:/capitalize}/}(): ${3:type} {",
+            "\t\treturn this.${2:property}",
+            "\t}",
+            "",
+            "\tpublic set${2/(.*)/${1:/capitalize}/}(value: ${3:type}): void {",
+            "\t\tthis.${2:property} = value",
+            "\t}",
+            "}"
+        ],
+        "description": "TypeScript class definition"
+    },
+    "Record Type": {
+        "prefix": "trec",
+        "body": "type ${1:TypeName} = Record<${2:KeyType}, ${3:ValueType}>"
+    },
+    "Union Type": {
+        "prefix": "tunion",
+        "body": "type ${1:TypeName} = ${2:Type1} | ${3:Type2}"
+    },
+    "Intersection Type": {
+        "prefix": "tinter",
+        "body": "type ${1:TypeName} = ${2:Type1} & ${3:Type2}"
+    },
+    "API Response Type": {
+        "prefix": "tapi",
+        "body": [
+            "interface ${1:Response}Success {",
+            "\tdata: {",
+            "\t\t${2:property}: ${3:type}",
+            "\t}",
+            "\tstatus: 'success'",
+            "}",
+            "",
+            "interface ${1:Response}Error {",
+            "\terror: {",
+            "\t\tmessage: string",
+            "\t\tcode: number",
+            "\t}",
+            "\tstatus: 'error'",
+            "}",
+            "",
+            "type ${1:Response} = ${1:Response}Success | ${1:Response}Error"
+        ],
+        "description": "API response type definition"
+    },
+    "Generic Function": {
+        "prefix": "tgfn",
+        "body": [
+            "function ${1:functionName}<T extends ${2:any}>(${3:param}: T): ${4:ReturnType}<T> {",
+            "\t${0}",
+            "}"
+        ],
+        "description": "Generic function definition"
+    },
+    "Error Handler": {
+        "prefix": "terr",
+        "body": [
+            "interface ${1:Custom}Error extends Error {",
+            "\tcode: string",
+            "\tstatus: number",
+            "}",
+            "",
+            "function handle${1:Custom}Error(error: unknown): ${1:Custom}Error {",
+            "\tif (error instanceof Error) {",
+            "\t\treturn {",
+            "\t\t\tname: error.name,",
+            "\t\t\tmessage: error.message,",
+            "\t\t\tstack: error.stack,",
+            "\t\t\tcode: '${2:ERROR_CODE}',",
+            "\t\t\tstatus: ${3:500}",
+            "\t\t}",
+            "\t}",
+            "\treturn {",
+            "\t\tname: 'UnknownError',",
+            "\t\tmessage: 'An unknown error occurred',",
+            "\t\tcode: 'UNKNOWN_ERROR',",
+            "\t\tstatus: 500",
+            "\t} as ${1:Custom}Error",
+            "}"
+        ],
+        "description": "Error handler with custom error type"
+    }
+}

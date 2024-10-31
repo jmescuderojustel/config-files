@@ -1,0 +1,306 @@
+{
+    "TypeScript React FC": {
+        "prefix": "tsrfc",
+        "body": [
+            "import React from 'react'",
+            "",
+            "export interface ${1:${TM_FILENAME_BASE}}Props {",
+            "\t${2:children?: React.ReactNode}",
+            "}",
+            "",
+            "const ${1:${TM_FILENAME_BASE}}: React.FC<${1:${TM_FILENAME_BASE}}Props> = ({",
+            "\t${2:children}",
+            "}) => {",
+            "\treturn (",
+            "\t\t<div>",
+            "\t\t\t$0",
+            "\t\t</div>",
+            "\t)",
+            "}",
+            "",
+            "export default ${1:${TM_FILENAME_BASE}}"
+        ],
+        "description": "TypeScript React Functional Component with Props Interface"
+    },
+    "TypeScript useState": {
+        "prefix": "tsus",
+        "body": [
+            "const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState<${2:type}>(${3:initialState})"
+        ],
+        "description": "TypeScript useState with generic type"
+    },
+    "TypeScript useEffect": {
+        "prefix": "tsue",
+        "body": [
+            "useEffect(() => {",
+            "\t${1:// Effect code}",
+            "\treturn () => {",
+            "\t\t${2:// Cleanup code}",
+            "\t}",
+            "}, [${3:dependencies}])"
+        ],
+        "description": "TypeScript useEffect with cleanup"
+    },
+    "TypeScript Custom Hook": {
+        "prefix": "tshook",
+        "body": [
+            "import { useState, useEffect } from 'react'",
+            "",
+            "interface ${1:HookName}Props {",
+            "\t${2:prop}: ${3:type}",
+            "}",
+            "",
+            "interface ${1:HookName}Return {",
+            "\t${4:returnProp}: ${5:returnType}",
+            "}",
+            "",
+            "export const use${1:HookName} = ({ ${2:prop} }: ${1:HookName}Props): ${1:HookName}Return => {",
+            "\t${0}",
+            "\treturn {",
+            "\t\t${4:returnProp}",
+            "\t}",
+            "}"
+        ],
+        "description": "TypeScript Custom Hook with Props and Return Type"
+    },
+    "TypeScript Event Handler": {
+        "prefix": "tseh",
+        "body": [
+            "const handle${1:Event} = (event: React.${2|ChangeEvent<HTMLInputElement>,MouseEvent<HTMLButtonElement>,FormEvent<HTMLFormElement>|}) => {",
+            "\t$0",
+            "}"
+        ],
+        "description": "TypeScript Event Handler with Event Types"
+    },
+    "TypeScript Generic Component": {
+        "prefix": "tsgen",
+        "body": [
+            "import React from 'react'",
+            "",
+            "interface ${1:${TM_FILENAME_BASE}}Props<T> {",
+            "\tdata: T[]",
+            "\trenderItem: (item: T) => React.ReactNode",
+            "\t${2:children?: React.ReactNode}",
+            "}",
+            "",
+            "const ${1:${TM_FILENAME_BASE}}<T,>: React.FC<${1:${TM_FILENAME_BASE}}Props<T>> = ({",
+            "\tdata,",
+            "\trenderItem,",
+            "\t${2:children}",
+            "}) => {",
+            "\treturn (",
+            "\t\t<div>",
+            "\t\t\t{data.map((item, index) => (",
+            "\t\t\t\t<React.Fragment key={index}>",
+            "\t\t\t\t\t{renderItem(item)}",
+            "\t\t\t\t</React.Fragment>",
+            "\t\t\t))}",
+            "\t\t\t$0",
+            "\t\t</div>",
+            "\t)",
+            "}",
+            "",
+            "export default ${1:${TM_FILENAME_BASE}}"
+        ],
+        "description": "TypeScript Generic React Component"
+    },
+    "TypeScript Context": {
+        "prefix": "tsctx",
+        "body": [
+            "import React, { createContext, useContext, useState } from 'react'",
+            "",
+            "interface ${1:Context}State {",
+            "\t${2:property}: ${3:type}",
+            "}",
+            "",
+            "interface ${1:Context}ContextType extends ${1:Context}State {",
+            "\tset${2/(.*)/${1:/capitalize}/}: (${2:property}: ${3:type}) => void",
+            "}",
+            "",
+            "const ${1:Context}Context = createContext<${1:Context}ContextType | undefined>(undefined)",
+            "",
+            "export const use${1:Context} = () => {",
+            "\tconst context = useContext(${1:Context}Context)",
+            "\tif (!context) {",
+            "\t\tthrow new Error('use${1:Context} must be used within a ${1:Context}Provider')",
+            "\t}",
+            "\treturn context",
+            "}",
+            "",
+            "export const ${1:Context}Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {",
+            "\tconst [${2:property}, set${2/(.*)/${1:/capitalize}/}] = useState<${3:type}>(${4:initialValue})",
+            "",
+            "\treturn (",
+            "\t\t<${1:Context}Context.Provider value={{ ${2:property}, set${2/(.*)/${1:/capitalize}/} }}>",
+            "\t\t\t{children}",
+            "\t\t</${1:Context}Context.Provider>",
+            "\t)",
+            "}",
+            ""
+        ],
+        "description": "TypeScript Context with Provider and Hook"
+    },
+    "TypeScript API Service": {
+        "prefix": "tsapi",
+        "body": [
+            "interface ${1:Resource} {",
+            "\tid: string",
+            "\t${2:property}: ${3:type}",
+            "}",
+            "",
+            "export const fetch${1:Resource}s = async (): Promise<${1:Resource}[]> => {",
+            "\tconst response = await fetch('${4:endpoint}')",
+            "\tif (!response.ok) {",
+            "\t\tthrow new Error('Network response was not ok')",
+            "\t}",
+            "\treturn response.json()",
+            "}",
+            "",
+            "export const fetch${1:Resource} = async (id: string): Promise<${1:Resource}> => {",
+            "\tconst response = await fetch(`${4:endpoint}/${id}`)",
+            "\tif (!response.ok) {",
+            "\t\tthrow new Error('Network response was not ok')",
+            "\t}",
+            "\treturn response.json()",
+            "}"
+        ],
+        "description": "TypeScript API Service Functions"
+    },
+    "Basic useEffect": {
+        "prefix": "uef",
+        "body": [
+            "useEffect(() => {",
+            "\t${1:// Effect code here}",
+            "}, [${2:dependencies}])"
+        ],
+        "description": "Basic useEffect hook"
+    },
+    "useEffect with Cleanup": {
+        "prefix": "uefc",
+        "body": [
+            "useEffect(() => {",
+            "\t${1:// Effect code here}",
+            "\t",
+            "\treturn () => {",
+            "\t\t${2:// Cleanup code here}",
+            "\t}",
+            "}, [${3:dependencies}])"
+        ],
+        "description": "useEffect with cleanup function"
+    },
+    "useEffect with Async": {
+        "prefix": "uefa",
+        "body": [
+            "useEffect(() => {",
+            "\tconst fetchData = async () => {",
+            "\t\ttry {",
+            "\t\t\tconst response = await ${1:fetch('url')}",
+            "\t\t\tconst data = await response.json()",
+            "\t\t\t${2:// Handle data}",
+            "\t\t} catch (error) {",
+            "\t\t\tconsole.error('Error:', error)",
+            "\t\t}",
+            "\t}",
+            "\t",
+            "\tfetchData()",
+            "}, [${3:dependencies}])"
+        ],
+        "description": "useEffect with async function"
+    },
+    "useEffect with TypeScript Event Listener": {
+        "prefix": "uefl",
+        "body": [
+            "useEffect(() => {",
+            "\tconst handler = (event: ${1|KeyboardEvent,MouseEvent,Event|}) => {",
+            "\t\t${2:// Handler code here}",
+            "\t}",
+            "\t",
+            "\twindow.addEventListener('${3:eventName}', handler)",
+            "\t",
+            "\treturn () => {",
+            "\t\twindow.removeEventListener('${3:eventName}', handler)",
+            "\t}",
+            "}, [${4:dependencies}])"
+        ],
+        "description": "useEffect with TypeScript event listener"
+    },
+    "useEffect with Interval": {
+        "prefix": "uefi",
+        "body": [
+            "useEffect(() => {",
+            "\tconst interval = setInterval(() => {",
+            "\t\t${1:// Interval code here}",
+            "\t}, ${2:1000})",
+            "\t",
+            "\treturn () => clearInterval(interval)",
+            "}, [${3:dependencies}])"
+        ],
+        "description": "useEffect with interval"
+    },
+    "useEffect with Local Storage": {
+        "prefix": "uefs",
+        "body": [
+            "useEffect(() => {",
+            "\ttry {",
+            "\t\tconst stored${1:Item} = localStorage.getItem('${2:key}')",
+            "\t\tif (stored${1:Item}) {",
+            "\t\t\t${3:setValue}(JSON.parse(stored${1:Item}))",
+            "\t\t}",
+            "\t} catch (error) {",
+            "\t\tconsole.error('Error reading from localStorage:', error)",
+            "\t}",
+            "}, [])"
+        ],
+        "description": "useEffect for local storage"
+    },
+    "useEffect with API and Loading State": {
+        "prefix": "uefal",
+        "body": [
+            "useEffect(() => {",
+            "\tlet isMounted = true",
+            "\t",
+            "\tconst fetchData = async () => {",
+            "\t\ttry {",
+            "\t\t\tsetIsLoading(true)",
+            "\t\t\tsetError(null)",
+            "\t\t\t",
+            "\t\t\tconst response = await fetch('${1:url}')",
+            "\t\t\tconst data = await response.json()",
+            "\t\t\t",
+            "\t\t\tif (isMounted) {",
+            "\t\t\t\tsetData(data)",
+            "\t\t\t}",
+            "\t\t} catch (error) {",
+            "\t\t\tif (isMounted) {",
+            "\t\t\t\tsetError(error instanceof Error ? error.message : 'An error occurred')",
+            "\t\t\t}",
+            "\t\t} finally {",
+            "\t\t\tif (isMounted) {",
+            "\t\t\t\tsetIsLoading(false)",
+            "\t\t\t}",
+            "\t\t}",
+            "\t}",
+            "\t",
+            "\tfetchData()",
+            "\t",
+            "\treturn () => {",
+            "\t\tisMounted = false",
+            "\t}",
+            "}, [${2:dependencies}])"
+        ],
+        "description": "useEffect with API call, loading state, and cleanup"
+    },
+    "useEffect with Debounce": {
+        "prefix": "uefd",
+        "body": [
+            "useEffect(() => {",
+            "\tconst timeoutId = setTimeout(() => {",
+            "\t\t${1:// Debounced code here}",
+            "\t}, ${2:500})",
+            "\t",
+            "\treturn () => clearTimeout(timeoutId)",
+            "}, [${3:dependencies}])"
+        ],
+        "description": "useEffect with debounce"
+    }
+}

@@ -1,0 +1,43 @@
+[
+    // Editor
+    {
+        "key": "ctrl+d",
+        "command": "editor.action.duplicateSelection"
+    },
+    // Explorer view
+    {
+        "key": "ctrl+e",
+        "command": "workbench.view.explorer",
+        "when": "viewContainer.workbench.view.explorer.enabled"
+    },
+    {
+        "key": "ctrl+shift+e",
+        "command": "workbench.files.action.focusFilesExplorer",
+        "when": "editorIsOpen"
+    },
+    {
+        "key": "alt+n",
+        "command": "explorer.newFile",
+        "when": "explorerViewletVisible"
+    },
+    {
+        "key": "alt+shift+n",
+        "command": "explorer.newFolder",
+        "when": "explorerViewletVisible"
+    },
+    {
+        "key": "alt+r",
+        "command": "renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "alt+del",
+        "command": "deleteFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "alt+c",
+        "command": "copyFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+    }
+]

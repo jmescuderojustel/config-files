@@ -1,0 +1,158 @@
+{
+  // List of extensions to be installed
+  "extensions.ignoreRecommendations": false,
+  "extensions.autoCheckUpdates": true,
+  "extensions.autoUpdate": true,
+
+  // Recommended extensions
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "vscodevim.vim",
+    "ms-vscode-remote.remote-containers",
+    "github.copilot",
+    "github.copilot-chat",
+    "vscode-icons-team.vscode-icons",
+    "github.github-vscode-theme"
+  ],
+  // Editor behavior
+  "editor.minimap.enabled": false, // Reduces visual noise
+  "editor.formatOnSave": true, // Auto-format code on save
+  "editor.lineNumbers": "relative", // Helpful for vim-style commands
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.snippetssuggestions": "top", // Prioritize snippets in suggestions
+  "editor.suggest.preview": true, // Preview completions
+  "editor.suggestSelection": "first", // Pre-select first suggestion
+  "editor.linkedEditing": true,
+  "editor.suggest.shareSuggestSelections": true,
+  "editor.acceptSuggestionOnCommitCharacter": true,
+  // Improved syntax highlighting
+  "editor.semanticHighlighting.enabled": true,
+  "editor.semanticTokenColorCustomizations": {
+    "enabled": true
+  },
+  "editor.rulers": [100, 140],
+  // Workbench settings
+  "workbench.editor.enablePreview": false, // Open files permanently
+  "workbench.startupEditor": "none", // Clean start
+  "workbench.tree.indent": 12, // Clearer file tree
+  // File handling
+  "files.autoSave": "off",
+  "files.trimTrailingWhitespace": true,
+  // Search settings
+  "search.smartCase": true,
+  "search.useGlobalIgnoreFiles": true,
+  // Terminal
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "terminal.integrated.persistentSessionReviveProcess": "never",
+  // Vim settings
+  "vim.easymotion": true,
+  "vim.incsearch": false,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": false,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["i", "f"],
+      "commands": ["editor.action.triggerSuggest"]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    }
+  ],
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.files.save"]
+    },
+    {
+      "before": ["<leader>", "q"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    {
+      "before": ["g", "d"],
+      "commands": ["typescript.goToSourceDefinition"]
+    },
+    {
+      "before": ["g", "D"],
+      "commands": ["typescript.goToTypeDefinition"]
+    },
+    {
+      "before": ["g", "i"],
+      "commands": ["typescript.goToImplementation"]
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["typescript.findAllReferences"]
+    },
+    // TypeScript refactoring
+    {
+      "before": ["<leader>", "ri"],
+      "commands": ["typescript.organizeImports"]
+    },
+    {
+      "before": ["<leader>", "rf"],
+      "commands": ["typescript.goToRefactor"]
+    },
+    {
+      "before": ["<leader>", "rn"],
+      "commands": ["typescript.reloadProject"]
+    },
+    // Quick fixes
+    {
+      "before": ["<leader>", "qf"],
+      "commands": ["typescript.goToSourceDefinition"]
+    },
+    // Type information
+    {
+      "before": ["K"],
+      "commands": ["editor.action.showHover"]
+    },
+    // Error navigation
+    {
+      "before": ["]", "e"],
+      "commands": ["editor.action.marker.next"]
+    },
+    {
+      "before": ["[", "e"],
+      "commands": ["editor.action.marker.prev"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "d"],
+      "after": ["d", "d"]
+    },
+    {
+      "before": ["<leader>", "c"],
+      "commands": ["editor.action.commentLine"]
+    },
+    {
+      "before": ["<leader>", "u"],
+      "commands": ["editor.action.uncommentLine"]
+    }
+  ],
+  "vim.leader": "<TAB>",
+  "vim.handleKeys": {
+    "<C-a>": false, // Allow VS Code to handle select all
+    "<C-f>": false, // Allow VS Code to handle find
+    "<C-c>": false, // Allow VS Code to handle copy
+    "<C-v>": false, // Allow VS Code to handle paste
+    "<C-x>": false, // Allow VS Code to handle cut
+    "<C-z>": false // Allow VS Code to handle undo
+  },
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.colorTheme": "GitHub Dark Default"
+}

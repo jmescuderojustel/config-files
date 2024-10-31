@@ -166,6 +166,14 @@
     "<C-x>": false, // Allow VS Code to handle cut
     "<C-z>": false // Allow VS Code to handle undo
   },
+  // Theme and icons
   "workbench.iconTheme": "vscode-icons",
-  "workbench.colorTheme": "GitHub Dark Default"
+  "workbench.colorTheme": "GitHub Dark Default",
+  // Explorer
+  "explorer.confirmDragAndDrop": false,
+  "explorer.autoOpenDroppedFile": true,
+  "explorer.autoReveal": true,
+  "explorer.autoRevealExclude": {
+    "**/node_modules": true
+  }
 }

@@ -4,17 +4,6 @@
   "extensions.autoCheckUpdates": true,
   "extensions.autoUpdate": true,
 
-  // Recommended extensions
-  "recommendations": [
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
-    "vscodevim.vim",
-    "ms-vscode-remote.remote-containers",
-    "github.copilot",
-    "github.copilot-chat",
-    "vscode-icons-team.vscode-icons",
-    "github.github-vscode-theme"
-  ],
   // Editor behavior
   "editor.minimap.enabled": false, // Reduces visual noise
   "editor.formatOnSave": true, // Auto-format code on save
@@ -175,5 +164,10 @@
   "explorer.autoReveal": true,
   "explorer.autoRevealExclude": {
     "**/node_modules": true
-  }
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.cursorSurroundingLines": 10,
+  "terminal.integrated.defaultProfile.windows": "Git Bash"
 }

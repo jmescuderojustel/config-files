@@ -54,12 +54,6 @@
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
   "vim.hlsearch": false,
-  "vim.insertModeKeyBindings": [
-    {
-      "before": ["i", "f"],
-      "commands": ["editor.action.triggerSuggest"]
-    }
-  ],
   "vim.visualModeKeyBindings": [
     {
       "before": [">"],
